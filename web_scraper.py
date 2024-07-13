@@ -34,10 +34,12 @@ def fetch_and_save_article(url, url_id, output_dir):
 def main():
     # Define the scope and authenticate the service account
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("D:/Desktop//certain-density-411209-233e2fd7eb18.json", scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name("path/to/your/credential/json/file", scope)
     client = gspread.authorize(creds)
 
     # Open the Google Sheet by URL
+    # The URL was given by Blackcoffer
+
     sheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1Y6Y1OisSJsFjc7Wf4TNV3xCbJMdtiXXN0WXOG_pbsAE/edit?usp=sharing')
     worksheet = sheet.get_worksheet(0)  # Use the first sheet
 
